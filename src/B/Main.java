@@ -1,35 +1,41 @@
 package B;
 
 import java.util.Scanner;
-
-import static java.lang.Character.isUpperCase;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-        String hantei = "";
         Scanner scan = new Scanner(System.in);
+        String[] array = new String[100];
+        Pattern p07 = Pattern.compile("[A-Z]");
+        Pattern p1 = Pattern.compile("[1-9]");
+        Pattern p26 = Pattern.compile("[0-9]");
+
         String str = scan.next();
-        char a = str.substring(0, 1).charAt(0);
-        int b = 0;
-        char c = str.substring(7, 8).charAt(0);
-        try {
-            b = Integer.parseInt(str.substring(1, 7));
-        } catch (StringIndexOutOfBoundsException exception) {
+        for(int i = 0; i < str.length(); i++){
+            array[i] = String.valueOf(str.charAt(i));
+        }
+        if(array[8] == null &&
+                array[0] != null &&
+                array[1] != null &&
+                array[2] != null &&
+                array[3] != null &&
+                array[4] != null &&
+                array[5] != null &&
+                array[6] != null &&
+                array[7] != null &&
+                (p07.matcher(array[0])).matches() &&
+                (p07.matcher(array[7])).matches() &&
+                (p1.matcher(array[1])).matches() &&
+                (p26.matcher(array[2])).matches() &&
+                (p26.matcher(array[3])).matches() &&
+                (p26.matcher(array[4])).matches() &&
+                (p26.matcher(array[5])).matches() &&
+                (p26.matcher(array[6])).matches()
+        ){
+            System.out.println("Yes");
+        }else{
             System.out.println("No");
-            System.exit(0);
         }
-        if(Integer.toString(b).length() == 6){
-            hantei = "Yes";
-        }else{
-            hantei = "No";
-        }
-
-        if(isUpperCase(a) == true && isUpperCase(c) == true){
-            hantei = "Yes";
-        }else{
-            hantei = "No";
-        }
-
-        System.out.println(hantei);
     }
 }
