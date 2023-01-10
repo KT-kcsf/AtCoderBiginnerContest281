@@ -1,6 +1,5 @@
 package C;
 
-
 import java.util.Scanner;
 
 public class Main {
@@ -12,7 +11,7 @@ public class Main {
         int fin = Integer.parseInt(a.substring(a.indexOf(" ") + 1, a.length()));
         a = scan.next();
         int record[] = new int[num];
-
+        /**/
         for(int i = 0; i < num; i++){
             record[i] = Integer.parseInt(a.substring(0, a.indexOf(" ")));
             a = a.substring(a.indexOf(" "));
